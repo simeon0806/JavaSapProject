@@ -1,7 +1,5 @@
 package opreators;
 
-import java.util.Date;
-
 public class Client {
 
     private String f_name;

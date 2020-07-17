@@ -1,7 +1,6 @@
 package opreators;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.util.List;
 import java.awt.event.ActionEvent;
@@ -28,7 +27,7 @@ public class GUIAdmin extends JFrame implements ActionListener{
     {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
-        info1 = new JLabel("Change service");
+        info1 = new JLabel("Clients who need to pay");
         clientsToPay = new JTextArea();
         info2 = new JLabel("Change service");
         lF_name = new JLabel("First name");
@@ -44,7 +43,7 @@ public class GUIAdmin extends JFrame implements ActionListener{
         back = new JButton("Logout");
 
         setTitle("Client");
-        setSize(800,400);
+        setSize(1200,400);
 
         add(info1);
         add(clientsToPay);

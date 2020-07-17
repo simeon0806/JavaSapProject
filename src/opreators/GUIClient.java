@@ -38,7 +38,7 @@ public class GUIClient extends JFrame{
         internet.setEnabled(false);
 
         setTitle("Client");
-        setSize(800,400);
+        setSize(1000,400);
 
         add(nameAndPhone);
         add(service);

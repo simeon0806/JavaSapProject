@@ -20,6 +20,6 @@ public class Payments {
 
     @Override
     public String toString() {
-        return  id +  f_name +  l_name + price + date ;
+        return  id + " " +  f_name + " " +  l_name + " " + price + " " + date ;
     }
 }

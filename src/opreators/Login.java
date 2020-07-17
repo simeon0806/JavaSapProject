@@ -45,7 +45,6 @@ public class Login extends JFrame implements ActionListener {
         try {
             String str = db.checkAdminClient(user , pass);
             String[] check = str.split("\\s+");
-            System.out.println(check[0] + "  " + check[1]);
             int id;
 
             if(check[0].equals("admin"))

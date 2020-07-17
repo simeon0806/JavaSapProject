@@ -141,8 +141,6 @@ public class JDBC {
         }
     }
 
-
-    // You need to close the resultSet
     private void close() {
         try {
             if (resultSet != null) {
