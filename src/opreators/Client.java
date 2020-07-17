@@ -1,5 +1,7 @@
 package opreators;
 
+import java.util.Date;
+
 public class Client {
 
     private String f_name;
@@ -23,7 +25,48 @@ public class Client {
         this.internet=internet;
         this.type=type;
         this.fullMin=fullMin;
+        this.fullSms=fullSms;
         this.fullInternet=fullInternet;
+    }
+
+    public int getFullInternet() {
+        return fullInternet;
+    }
+
+    public int getFullMin() {
+        return fullMin;
+    }
+
+    public int getFullSms() {
+        return fullSms;
+    }
+
+    public int getInternet() {
+        return internet;
+    }
+
+    public int getMin() {
+        return min;
+    }
+
+    public int getSms() {
+        return sms;
+    }
+
+    public String getF_name() {
+        return f_name;
+    }
+
+    public String getL_name() {
+        return l_name;
+    }
+
+    public String getPhone_num() {
+        return phone_num;
+    }
+
+    public String getType() {
+        return type;
     }
 
 }

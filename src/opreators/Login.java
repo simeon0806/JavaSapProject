@@ -10,7 +10,7 @@ public class Login extends JFrame implements ActionListener {
     private JLabel username;
     private JTextField tfUsername;
     private JLabel password;
-    private JTextField tfPassword;
+    private JPasswordField tfPassword;
     private JButton login;
     Login()
     {
@@ -19,7 +19,7 @@ public class Login extends JFrame implements ActionListener {
         username = new JLabel("username");
         tfUsername = new JTextField(10);
         password = new JLabel("password");
-        tfPassword = new JTextField(10);
+        tfPassword = new JPasswordField(10);
         login = new JButton("Login");
 
         setTitle("Login");
@@ -41,6 +41,33 @@ public class Login extends JFrame implements ActionListener {
         String user = tfUsername.getText();
         String pass = tfPassword.getText();
 
-        // logic
+        JDBC db = new JDBC();
+        try {
+            String str = db.checkAdminClient(user , pass);
+            String[] check = str.split("\\s+");
+            System.out.println(check[0] + "  " + check[1]);
+            int id;
+
+            if(check[0].equals("admin"))
+            {
+                id = Integer.parseInt(check[1]);
+                new GUIAdmin();
+                setVisible(false);
+            }
+            else if (check[0].equals("client"))
+            {
+                id = Integer.parseInt(check[1]);
+                new GUIClient(id);
+                setVisible(false);
+            }
+            else {
+                final JFrame parent = new JFrame();
+                JOptionPane.showMessageDialog(parent ,"Wrong username or password!","Alert",JOptionPane.WARNING_MESSAGE);
+            }
+
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
     }
 }

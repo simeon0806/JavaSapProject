@@ -47,29 +47,21 @@ public class JDBC {
             Date date = resultSet.getDate("p.pay_until");
             Payments curr = new Payments(id,f_name,l_name,price,date);
             payments.add(curr);
-            /*System.out.println("id: " + id);
-            System.out.println("fname: " + f_name);
-            System.out.println("lname: " + l_name);
-            System.out.println("price: " + price);
-            System.out.println("date: " + date);*/
         }
 
         return payments;
     }
 
-    public void readDataForClient(String username,String password) throws Exception {
+    public Client readDataForClient(int client_id) throws Exception {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager
                     .getConnection("jdbc:mysql://localhost:3306/operator_service","root","admin");
             statement = connect.createStatement();
-            resultSet = statement
-                    .executeQuery("select client_id from login where username = '"+username+"' and `password`='"+password+"'");
-            resultSet.next();
-            int id = resultSet.getInt("client_id");
+            int id = client_id;
             resultSet = statement
                     .executeQuery("select c.f_name,c.l_name,c.phone_num,c.min,c.sms,c.internet,s.type,s.min,s.sms,s.internet from clients as c join service as s on c.service_id=s.id where c.id = "+id);
-            readDataForClientResultSet(resultSet);
+            return readDataForClientResultSet(resultSet);
 
         } catch (Exception e) {
             throw e;
@@ -93,13 +85,6 @@ public class JDBC {
             int fullSms = resultSet.getInt("s.sms");
             int fullInternet = resultSet.getInt("s.internet");
             client =new Client(f_name,l_name,phone_num,min,sms,internet,type,fullMin,fullSms,fullInternet);
-           /* System.out.println("f_name: " + f_name);
-            System.out.println("l_name: " + l_name);
-            System.out.println("phone_num: " + phone_num);
-            System.out.println("type: " + type);
-            System.out.println("min: " + min + "/"+fullMin);
-            System.out.println("sms: " + sms + "/"+fullSms);
-            System.out.println("internet: " + internet + "/"+fullInternet);*/
         }
         return client;
     }
@@ -122,9 +107,9 @@ public class JDBC {
             }
 
             if(client_id!=NULL)
-                return "client";
+                return "client "+client_id;
             else if (admin_id!=NULL)
-                return "admin";
+                return "admin "+admin_id;
             else
                 return "not found";
 
@@ -134,6 +119,26 @@ public class JDBC {
             close();
         }
 
+    }
+
+    public int changeServiceType(String f_name, String l_name, int id,int sercice_id) throws Exception {
+        boolean result=true;
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager
+                    .getConnection("jdbc:mysql://localhost:3306/operator_service","root","admin");
+
+            statement = connect.createStatement();
+            int resultUpd = statement
+                    .executeUpdate("update clients set service_id = "+sercice_id+" where f_name = '"+f_name+"' and l_name= '"+l_name+"' and id="+id);
+
+            return resultUpd;
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            close();
+        }
     }
 
 

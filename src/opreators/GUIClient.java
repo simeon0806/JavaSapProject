@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class GUIClient extends JFrame{
 
+    private JLabel nameAndPhone ;
     private JLabel service ;
     private JLabel serviceName ;
     private JLabel remaining ;
@@ -14,14 +15,13 @@ public class GUIClient extends JFrame{
     private JTextField sms;
     private JLabel lInternet ;
     private JTextField internet;
-    private JLabel infoDate;
-    private JLabel date;
+    private JButton back;
 
+    GUIClient(int client_id) throws Exception {
 
-    GUIClient()
-    {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
+        nameAndPhone = new JLabel();
         service = new JLabel("Service: ");
         serviceName = new JLabel();
         remaining = new JLabel("Remaining");
@@ -31,8 +31,7 @@ public class GUIClient extends JFrame{
         sms = new JTextField(10);
         lInternet = new JLabel("Internet:");
         internet = new JTextField(10);
-        infoDate = new JLabel("Payment by");
-        date = new JLabel();
+        back = new JButton("Logout");
 
         min.setEnabled(false);
         sms.setEnabled(false);
@@ -41,6 +40,7 @@ public class GUIClient extends JFrame{
         setTitle("Client");
         setSize(800,400);
 
+        add(nameAndPhone);
         add(service);
         add(serviceName);
         add(remaining);
@@ -50,15 +50,26 @@ public class GUIClient extends JFrame{
         add(sms);
         add(lInternet);
         add(internet);
-        add(infoDate);
-        add(date);
+        add(back);
 
-        action();
+        action(client_id);
+
+        back.addActionListener(e->{
+            new Login();
+            setVisible(false);
+        });
 
         setVisible(true);
     }
 
-    public void action() {
-        // logic
+    public void action(int client_id) throws Exception {
+        JDBC bd = new JDBC();
+        Client clientData = bd.readDataForClient(client_id);
+
+        nameAndPhone.setText(clientData.getF_name()+ "  " + clientData.getL_name() + "  " + clientData.getPhone_num());
+        serviceName.setText(clientData.getType());
+        min.setText(clientData.getMin() + " / " + clientData.getFullMin());
+        sms.setText(clientData.getSms() + " / " + clientData.getFullSms());
+        internet.setText(clientData.getInternet() + " / " + clientData.getFullInternet());
     }
 }

@@ -1,14 +1,16 @@
 package opreators;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GUIAdmin extends JFrame {
+public class GUIAdmin extends JFrame implements ActionListener{
 
     private JLabel info1;
-    private JList<String> clientsToPay;
+    private JTextArea clientsToPay;
     private JLabel info2;
     private JLabel lF_name;
     private JTextField f_name;
@@ -20,13 +22,14 @@ public class GUIAdmin extends JFrame {
     private JComboBox<String> box;
     private String[] types;
     private JButton change;
+    private JButton back;
 
     GUIAdmin()
     {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new FlowLayout());
         info1 = new JLabel("Change service");
-        clientsToPay = new JList<String>();
+        clientsToPay = new JTextArea();
         info2 = new JLabel("Change service");
         lF_name = new JLabel("First name");
         f_name = new JTextField(10);
@@ -38,6 +41,7 @@ public class GUIAdmin extends JFrame {
         types = new String[]{"S","M","L"};
         box = new JComboBox<>(types);
         change = new JButton("Change");
+        back = new JButton("Logout");
 
         setTitle("Client");
         setSize(800,400);
@@ -54,17 +58,54 @@ public class GUIAdmin extends JFrame {
         add(lType);
         add(box);
         add(change);
+        add(back);
 
 
-        clientsToPay.addListSelectionListener(e -> {
-            //logic
-        });
+        clientsToPay.enable(false);
+        addToJTextArea();
 
 
-        change.addActionListener(e -> {
-            //logic
+        change.addActionListener(this);
+
+        back.addActionListener(e->{
+            new Login();
+            setVisible(false);
         });
 
         setVisible(true);
     }
+
+    void addToJTextArea(){
+        JDBC bd = new JDBC();
+        try {
+            List<Payments> paymentsList = bd.readWhoNeedToPay();
+            for (Payments p : paymentsList) {
+                clientsToPay.append(p.toString()+"\n");
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        JDBC bd = new JDBC();
+
+        int id = box.getSelectedIndex() + 1;
+
+        try {
+            int check = bd.changeServiceType(f_name.getText(),l_name.getText(),Integer.parseInt(client_num.getText()),id);
+            final JFrame parent = new JFrame();
+            if(check == 0)
+            {
+                JOptionPane.showMessageDialog(parent ,"There is no user with that first name, last name and id!","Alert",JOptionPane.WARNING_MESSAGE);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(parent ,"Successful change","Information",JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
 }

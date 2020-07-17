@@ -39,6 +39,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -69,7 +70,8 @@
       <option name="presentableId" value="Default" />
       <updated>1594426329306</updated>
       <workItem from="1594426332854" duration="22946000" />
-      <workItem from="1594910415420" duration="1198000" />
+      <workItem from="1594910415420" duration="10878000" />
+      <workItem from="1594943638944" duration="3776000" />
     </task>
     <servers />
   </component>
@@ -85,29 +87,45 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="574" y="127" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1594897305029" />
+    <state x="499" y="193" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1594923213635">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="499" y="193" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1536.834@0.0.1536.834" timestamp="1594923213635" />
     <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1594910198563">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1594910198563" />
-    <state width="1493" height="213" key="GridCell.Tab.0.bottom" timestamp="1594910200499">
+    <state width="1493" height="213" key="GridCell.Tab.0.bottom" timestamp="1594948324572">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1594910200499" />
-    <state width="1493" height="213" key="GridCell.Tab.0.center" timestamp="1594910200499">
+    <state width="1493" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1594948324572" />
+    <state width="1493" height="213" key="GridCell.Tab.0.center" timestamp="1594948324572">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1594910200499" />
-    <state width="1493" height="213" key="GridCell.Tab.0.left" timestamp="1594910200499">
+    <state width="1493" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1594948324572" />
+    <state width="1493" height="213" key="GridCell.Tab.0.left" timestamp="1594948324572">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1594910200499" />
-    <state width="1493" height="213" key="GridCell.Tab.0.right" timestamp="1594910200499">
+    <state width="1493" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1594948324572" />
+    <state width="1493" height="213" key="GridCell.Tab.0.right" timestamp="1594948324572">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1594910200499" />
+    <state width="1493" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1594948324572" />
     <state x="249" y="0" key="SettingsEditor" timestamp="1594854981129">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1594854981129" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1594943641992">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1594943641992" />
+    <state x="499" y="173" key="extract.method.dialog" timestamp="1594922954396">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="499" y="173" key="extract.method.dialog/0.0.1536.834@0.0.1536.834" timestamp="1594922954396" />
+    <state x="425" y="71" width="670" height="676" key="search.everywhere.popup" timestamp="1594922989978">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="425" y="71" width="670" height="676" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1594922989978" />
   </component>
 </project>
